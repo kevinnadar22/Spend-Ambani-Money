@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spend Ambani's Money! 💰</title>
+    <!-- Google Fonts - Comic and cartoon style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Animate.css for fun animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Howler.js for sound effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <!-- favicon -->
+    <link rel="icon" href="https://www.thetimesbusiness.com/wp-content/uploads/2019/12/5-4-e1577699632517.jpg">
+</head>
+<body>
+    <div class="money-rain"></div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Receipt</h2>
+            <button class="close-cart-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="receipt-paper">
+            <div class="receipt-header">
+                <h3>Shopping Spree Summary</h3>
+                <p>Started with: ₹10,00,00,00,000</p>
+            </div>
+            <ul id="receipt-items">
+                <!-- Receipt items will be added here -->
+            </ul>
+            <div class="receipt-total">
+                <p>Remaining: <span id="remaining-amount">₹10,00,00,00,000</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942792.png" alt="Money Bag" class="logo-img">
+                <h1>Spend Ambani's Money!</h1>
+            </div>
+            <div class="money-meter-container">
+                <div class="money-meter">
+                    <div class="ambani-avatar">
+                        <img src="https://www.thetimesbusiness.com/wp-content/uploads/2019/12/5-4-e1577699632517.jpg" alt="Ambani Cartoon">
+                        <div class="speech-bubble hidden" id="speech-bubble">
+                            <p id="speech-text">Let's see how you spend my money!</p>
+                        </div>
+                    </div>
+                    <div class="money-counter">
+                        <span class="rupee-symbol">₹</span>
+                        <span id="money-amount">10,00,00,00,000</span>
+                    </div>
+                    <button class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-notification" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="items-container">
+            <!-- Items will be dynamically added here -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="created-by">
+            <p>Created for educational & entertainment purposes</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="items.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
