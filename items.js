@@ -212,57 +212,54 @@ const items = [
     }
 ]; 
 
-// Sound effects
-const sounds = {
-    buy: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/951/951.wav'],
-        volume: 0.5
-    }),
-    sell: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/270/270.wav'],
-        volume: 0.5
-    }),
-    cantAfford: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/952/952.wav'],
-        volume: 0.5
-    }),
-    moneyRain: new Howl({
-        src: ['https://assets.mixkit.co/active_storage/sfx/888/888.wav'],
-        volume: 0.3,
-        loop: false
-    })
-};
-
 // Cartoon character speech lines
 const speeches = {
     start: [
         "Let's see how you spend my money!",
         "Go ahead, try to spend it all!",
-        "Don't be shy, my wallet is your wallet today!"
+        "Don't be shy, my wallet is your wallet today!",
+        "Welcome to the life of luxury!",
+        "Money is no object—go wild!",
+        "Spend like there's no tomorrow!"
     ],
     smallPurchase: [
         "That's it? Think bigger!",
         "You call that a purchase? I spend more on breakfast!",
-        "Come on, you can do better than that!"
+        "Come on, you can do better than that!",
+        "Pocket change! Try something fancier!",
+        "A billionaire wouldn't even notice that!",
+        "Don't be afraid to treat yourself!"
     ],
     mediumPurchase: [
         "Now we're talking!",
         "That's more like it!",
-        "Enjoying yourself? There's plenty more!"
+        "Enjoying yourself? There's plenty more!",
+        "Nice choice! But why stop there?",
+        "You're getting the hang of this!",
+        "Ah, the joys of spending freely!"
     ],
     bigPurchase: [
         "Wow, big spender!",
         "That's how you spend like a billionaire!",
-        "Now you're thinking like me!"
+        "Now you're thinking like me!",
+        "I love your taste—keep going!",
+        "Luxury looks good on you!",
+        "You just made someone very rich!"
     ],
     cantAfford: [
         "Oops! Even my money has limits!",
         "Sorry, you've run out of my money!",
-        "Time to sell something first!"
+        "Time to sell something first!",
+        "No more funds? That's a new experience!",
+        "Looks like you reached the bottom of the vault!",
+        "Even billionaires hit their limit!"
     ],
     almostBroke: [
         "You've nearly spent it all!",
         "My accountant is getting nervous!",
-        "I'm almost broke... well, by my standards!"
+        "I'm almost broke... well, by my standards!",
+        "Just a few more purchases and it's all gone!",
+        "This is what financial danger looks like!",
+        "One last splurge before we call it quits?"
     ]
-}; 
+};

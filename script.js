@@ -235,15 +235,9 @@ function buyItem(itemId) {
         // Update money display
         updateMoneyDisplay();
         
-        // Play sound effect
-        sounds.buy.play();
-        
         // Add item animation
         animateItemBuy(itemId);
     } else {
-        // Play can't afford sound
-        sounds.cantAfford.play();
-        
         // Flash the money counter
         moneyAmountEl.classList.add('animate__animated', 'animate__headShake');
         setTimeout(() => {
@@ -280,9 +274,6 @@ function sellItem(itemId) {
         
         // Update money display
         updateMoneyDisplay();
-        
-        // Play sound effect
-        sounds.sell.play();
         
         // Add item animation
         animateItemSell(itemId);
