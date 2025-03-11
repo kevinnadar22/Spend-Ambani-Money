@@ -67,7 +67,7 @@ const items = [
         id: 10,
         name: "Gaming PC Setup",
         image: "https://i.ytimg.com/vi/EA0YC9m6D4s/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCPEDlv0VGPIr2CC_juaUkgVRDJDQ",
-        price: 300000, // ₹3,00,000
+        price: 400000, // ₹4,00,000
         description: "High-end gaming PC with RGB lighting and top-tier components."
     },
     {
@@ -109,7 +109,7 @@ const items = [
         id: 16,
         name: "Bitcoin (1 BTC)",
         image: "https://logos-world.net/wp-content/uploads/2020/08/Bitcoin-Logo.png",
-        price: 5500000, // ₹55,00,000
+        price: 71000000, // ₹71,00,000
         description: "One Bitcoin, the world's leading cryptocurrency."
     },
     {
@@ -154,13 +154,7 @@ const items = [
         price: 1000000000, // ₹100 crore
         description: "Your own private island paradise near Goa."
     },
-    {
-        id: 23,
-        name: "Anant-Radhika Wedding",
-        image: "https://d.newsweek.com/en/full/2426953/anant-ambani-radhika-merchant-wedding.jpg?w=1600&h=1200&q=88&f=5fa047cabcfcdd368538d6eaba4027fe",
-        price: 5000000000, // ₹500 crore
-        description: "Host a wedding as grand as the Ambani family celebration."
-    },
+
     {
         id: 24,
         name: "Boeing 747",
@@ -175,6 +169,7 @@ const items = [
         price: 63000000000, // ₹6,300 crore
         description: "Have the net worth of Bollywood's King Khan."
     },
+
     {
         id: 26,
         name: "Chennai Super Kings",
@@ -188,6 +183,13 @@ const items = [
         image: "https://etimg.etb2bimg.com/photo/78145880.cms",
         price: 80000000000, // ₹8,000 crore
         description: "Own the most successful IPL cricket franchise."
+    },
+    {
+        id: 23,
+        name: "Anant-Radhika Wedding",
+        image: "https://d.newsweek.com/en/full/2426953/anant-ambani-radhika-merchant-wedding.jpg?w=1600&h=1200&q=88&f=5fa047cabcfcdd368538d6eaba4027fe",
+        price: 87000000000, // ₹8,734.5 crore
+        description: "Host a wedding as grand as the Ambani family celebration."
     },
     {
         id: 28,
@@ -210,56 +212,56 @@ const items = [
         price: 130000000000, // ₹13,000 crore (annual budget)
         description: "Fund India's space research organization for a year."
     }
-]; 
+];
 
 // Cartoon character speech lines
 const speeches = {
     start: [
-        "Let's see how you spend my money!",
-        "Go ahead, try to spend it all!",
-        "Don't be shy, my wallet is your wallet today!",
-        "Welcome to the life of luxury!",
-        "Money is no object—go wild!",
-        "Spend like there's no tomorrow!"
+        "Alright, let's see how fast you can burn through my fortune!",
+        "Go ahead, flex those spending muscles—make me regret this!",
+        "My wallet is your wallet… until you bankrupt me!",
+        "Welcome to the VIP life! Don't embarrass me now!",
+        "Money is just a number, and I have too many of them!",
+        "Spend recklessly! Financial advisors HATE me!"
     ],
     smallPurchase: [
-        "That's it? Think bigger!",
-        "You call that a purchase? I spend more on breakfast!",
-        "Come on, you can do better than that!",
-        "Pocket change! Try something fancier!",
-        "A billionaire wouldn't even notice that!",
-        "Don't be afraid to treat yourself!"
+        "Bruh, is that all? My grandma spends more on cat food!",
+        "Wow, big spender! Next, you gonna buy a single peanut?",
+        "Pfft. My goldfish has a higher budget.",
+        "Lemme guess, you’re saving up for a yacht? No? Then SPEND MORE!",
+        "Bro, at this rate, even inflation is laughing at you!",
+        "You're treating my money like it's yours—stop being responsible!"
     ],
     mediumPurchase: [
-        "Now we're talking!",
-        "That's more like it!",
-        "Enjoying yourself? There's plenty more!",
-        "Nice choice! But why stop there?",
-        "You're getting the hang of this!",
-        "Ah, the joys of spending freely!"
+        "Okay, now we're getting somewhere!",
+        "You’re finally spending like a mildly unhinged millionaire!",
+        "Ooo, I feel that one in my bank account. Nice!",
+        "Now that’s a proper flex!",
+        "You’re getting a taste for luxury, I see. Dangerous!",
+        "Nice choice! But why stop now? Bankrupt me!"
     ],
     bigPurchase: [
-        "Wow, big spender!",
-        "That's how you spend like a billionaire!",
-        "Now you're thinking like me!",
-        "I love your taste—keep going!",
-        "Luxury looks good on you!",
-        "You just made someone very rich!"
+        "HOLY— okay, that one stung a little.",
+        "Now you’re cooking! With GOLD!",
+        "That's the kind of spending that gets accountants fired!",
+        "Luxury looks disturbingly good on you!",
+        "You just made a random billionaire even richer!",
+        "I hope you enjoy it, because my wallet just cried a little!"
     ],
     cantAfford: [
-        "Oops! Even my money has limits!",
-        "Sorry, you've run out of my money!",
-        "Time to sell something first!",
-        "No more funds? That's a new experience!",
-        "Looks like you reached the bottom of the vault!",
-        "Even billionaires hit their limit!"
+        "Whoops! Even bottomless pockets have a bottom!",
+        "Congratulations, you have successfully bankrupted me!",
+        "No money? Time to sell a kidney, I guess!",
+        "You’ve hit rock bottom… and it's not even marble.",
+        "RIP my funds. Gone but never forgotten.",
+        "Sorry, but even I can't afford your dreams!"
     ],
     almostBroke: [
-        "You've nearly spent it all!",
-        "My accountant is getting nervous!",
-        "I'm almost broke... well, by my standards!",
-        "Just a few more purchases and it's all gone!",
-        "This is what financial danger looks like!",
-        "One last splurge before we call it quits?"
+        "Uh-oh, I’m feeling kinda broke… Nah, just kidding. (Or am I?)",
+        "My accountant just fainted. Good job!",
+        "You're one purchase away from me having to WORK for money!",
+        "I can hear my credit card crying. It sounds beautiful.",
+        "This is what ‘financially reckless’ looks like. I’m so proud.",
+        "One more splurge, and we officially enter ‘oops’ territory!"
     ]
 };
