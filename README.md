@@ -1,7 +1,7 @@
 # 💰 Spend Ambani's Money
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fspend-ambani-money.vercel.app)](https://spend-ambani-money.vercel.app)
+[![Website](https://img.shields.io/website?url=https://spendambanimoney.in)](https://spendambanimoney.in)
 [![GitHub stars](https://img.shields.io/github/stars/kevinnadar22/Spend-Ambani-Money?style=social)](https://github.com/kevinnadar22/Spend-Ambani-Money/stargazers)
 
 A fun interactive web application that lets you experience what it would be like to spend Mukesh Ambani's fortune. Mukesh Ambani is one of the richest people in the world with a net worth of approximately ₹10,00,000 crore INR.
