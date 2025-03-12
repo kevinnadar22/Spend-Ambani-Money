@@ -141,6 +141,13 @@ const items = [
         description: "The epitome of luxury automobiles."
     },
     {
+        id: 23,
+        name: "Anant-Radhika Wedding",
+        image: "https://i.ibb.co/nMBxtrdC/anant-ambani-radhika-merchant-wedding.jpg",
+        price: 5000000000, // ₹500 crore
+        description: "Host a wedding as grand as the Ambani family celebration."
+    },
+    {
         id: 21,
         name: "Make a Movie",
         image: "https://i.ibb.co/h1yWNxLk/film.jpg",
@@ -185,13 +192,6 @@ const items = [
         description: "Own the most successful IPL cricket franchise."
     },
     {
-        id: 23,
-        name: "Anant-Radhika Wedding",
-        image: "https://i.ibb.co/nMBxtrdC/anant-ambani-radhika-merchant-wedding.jpg",
-        price: 87000000000, // ₹8,734.5 crore
-        description: "Host a wedding as grand as the Ambani family celebration."
-    },
-    {
         id: 28,
         name: "Antilia",
         image: "https://i.ibb.co/HZWBYZG/p-9932-antilia-is-a-lavish.jpg",
@@ -204,13 +204,6 @@ const items = [
         image: "https://i.ibb.co/mFCZm5Yd/ola-cabs-logo-5986.png",
         price: 540000000000, // ₹54,000 crore
         description: "Own the entire ride-hailing company at its current valuation."
-    },
-    {
-        id: 30,
-        name: "ISRO (Space Agency)",
-        image: "https://i.ibb.co/Tq7sQ2qh/1200px-Indian-Space-Research-Organisation-Logo-svg.png",
-        price: 130000000000, // ₹13,000 crore (annual budget)
-        description: "Fund India's space research organization for a year."
     }
 ];
 
