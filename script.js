@@ -145,25 +145,61 @@ function addEventListeners() {
     itemsContainerEl.addEventListener('click', function(e) {
         // Buy button clicked
         if (e.target.classList.contains('buy-button')) {
+            e.preventDefault();
+            e.stopPropagation();
             const itemId = e.target.dataset.itemId;
             buyItem(itemId);
         }
         
         // Sell button clicked
         if (e.target.classList.contains('sell-button')) {
+            e.preventDefault();
+            e.stopPropagation();
             const itemId = e.target.dataset.itemId;
             sellItem(itemId);
         }
     });
+
+    // Add touch events for buttons
+    itemsContainerEl.addEventListener('touchstart', function(e) {
+        if (e.target.classList.contains('buy-button') || e.target.classList.contains('sell-button')) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, { passive: false });
+
+    itemsContainerEl.addEventListener('touchend', function(e) {
+        if (e.target.classList.contains('buy-button')) {
+            e.preventDefault();
+            const itemId = e.target.dataset.itemId;
+            buyItem(itemId);
+        } else if (e.target.classList.contains('sell-button')) {
+            e.preventDefault();
+            const itemId = e.target.dataset.itemId;
+            sellItem(itemId);
+        }
+    }, { passive: false });
     
     // Cart button
     cartButtonEl.addEventListener('click', toggleCart);
+    cartButtonEl.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        toggleCart();
+    }, { passive: false });
     
     // Close cart button
     closeCartBtnEl.addEventListener('click', toggleCart);
+    closeCartBtnEl.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        toggleCart();
+    }, { passive: false });
     
     // Close cart when clicking overlay
     cartOverlayEl.addEventListener('click', closeCartOnOutsideClick);
+    cartOverlayEl.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        closeCartOnOutsideClick();
+    }, { passive: false });
     
     // Prevent closing when clicking inside cart
     cartSidebarEl.addEventListener('click', function(e) {
@@ -178,35 +214,30 @@ function addEventListeners() {
         }
     });
     
-    // Item card hover effects for mobile
+    // Item card touch handling
     const itemCards = document.querySelectorAll('.item-card');
     itemCards.forEach(card => {
-        let touchTimeout;
+        let touchStartY = 0;
+        let touchEndY = 0;
         
         card.addEventListener('touchstart', function(e) {
-            // Prevent default to avoid triggering hover and click at the same time
-            e.preventDefault();
-            
-            // Clear any existing timeout
-            clearTimeout(touchTimeout);
-            
-            // Add a temporary class for touch effect
+            touchStartY = e.touches[0].clientY;
             this.classList.add('touch-active');
-        });
+        }, { passive: true });
+        
+        card.addEventListener('touchmove', function(e) {
+            touchEndY = e.touches[0].clientY;
+            const deltaY = touchEndY - touchStartY;
+            
+            // If user is trying to scroll (moved finger more than 10px)
+            if (Math.abs(deltaY) > 10) {
+                this.classList.remove('touch-active');
+            }
+        }, { passive: true });
         
         card.addEventListener('touchend', function() {
-            const currentCard = this;
-            
-            // Set a small timeout to allow for tap recognition
-            touchTimeout = setTimeout(() => {
-                currentCard.classList.remove('touch-active');
-            }, 300);
-        });
-        
-        // Also remove the class when touch is moved away
-        card.addEventListener('touchmove', function() {
             this.classList.remove('touch-active');
-        });
+        }, { passive: true });
     });
 }
 
