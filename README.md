@@ -47,6 +47,7 @@ This project is created for entertainment and educational purposes to help visua
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/kevinnadar22/Spend-Ambani-Money/issues).
 
+
 ## 📝 License
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
