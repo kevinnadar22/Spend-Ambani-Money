@@ -47,6 +47,10 @@ This project is created for entertainment and educational purposes to help visua
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/kevinnadar22/Spend-Ambani-Money/issues).
 
+<p>
+  <img src="https://api.vaunt.dev/v1/github/entities/kevinnadar22/achievements?format=svg&limit=3" width="350" />
+</p>
+
 ## 📝 License
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
