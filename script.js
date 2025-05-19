@@ -169,6 +169,9 @@ function closeCartOnOutsideClick() {
 // Update the buy buttons based on current money
 function updateBuyButtons() {
     const buyButtons = document.querySelectorAll('.buy-button');
+    const buyMaxButtons = document.querySelectorAll('.buy-max-button');
+    const sellButtons = document.querySelectorAll('.sell-button');
+    const sellAllButtons = document.querySelectorAll('.sell-all-button');
     
     buyButtons.forEach(button => {
         const itemId = button.dataset.itemId;
@@ -180,6 +183,112 @@ function updateBuyButtons() {
             button.disabled = false;
         }
     });
+    
+    buyMaxButtons.forEach(button => {
+        const itemId = button.dataset.itemId;
+        const itemPrice = items.find(item => item.id == itemId).price;
+        
+        if (currentMoney < itemPrice) {
+            button.disabled = true;
+        } else {
+            button.disabled = false;
+        }
+    });
+    
+    // Update sell and sell all buttons based on cart quantities
+    sellButtons.forEach(button => {
+        const itemId = button.dataset.itemId;
+        if (!cart[itemId] || cart[itemId] === 0) {
+            button.disabled = true;
+        } else {
+            button.disabled = false;
+        }
+    });
+    
+    sellAllButtons.forEach(button => {
+        const itemId = button.dataset.itemId;
+        if (!cart[itemId] || cart[itemId] === 0) {
+            button.disabled = true;
+        } else {
+            button.disabled = false;
+        }
+    });
+}
+
+// Buy maximum amount of an item with remaining money
+function buyMaxItems(itemId) {
+    const item = items.find(item => item.id == itemId);
+    
+    // Check if the user has enough money for at least one item
+    if (currentMoney >= item.price) {
+        // Calculate how many items can be bought
+        const maxQuantity = Math.floor(currentMoney / item.price);
+        
+        // Update money
+        currentMoney -= (item.price * maxQuantity);
+        
+        // Update cart
+        cart[itemId] = (cart[itemId] || 0) + maxQuantity;
+        
+        // Update UI
+        document.getElementById(`quantity-${itemId}`).textContent = cart[itemId];
+        document.querySelector(`.sell-button[data-item-id="${itemId}"]`).disabled = false;
+        
+        // Update cart count
+        updateCartCount();
+        
+        // Update receipt
+        updateReceipt();
+        
+        // Update money display
+        updateMoneyDisplay();
+        
+        // Add item animation
+        animateItemBuy(itemId);
+    } else {
+        // Flash the money counter
+        moneyAmountEl.classList.add('animate__animated', 'animate__headShake');
+        setTimeout(() => {
+            moneyAmountEl.classList.remove('animate__animated', 'animate__headShake');
+        }, 1000);
+    }
+}
+
+// Sell all of an item
+function sellAllItems(itemId) {
+    const item = items.find(item => item.id == itemId);
+    
+    // Check if the user has the item in the cart
+    if (cart[itemId] && cart[itemId] > 0) {
+        // Calculate how much money to add back
+        const refundAmount = item.price * cart[itemId];
+        
+        // Update money
+        currentMoney += refundAmount;
+        
+        // Get the current quantity for animation
+        const oldQuantity = cart[itemId];
+        
+        // Reset cart quantity to 0
+        cart[itemId] = 0;
+        
+        // Update UI
+        document.getElementById(`quantity-${itemId}`).textContent = 0;
+        document.querySelector(`.sell-button[data-item-id="${itemId}"]`).disabled = true;
+        document.querySelector(`.sell-all-button[data-item-id="${itemId}"]`).disabled = true;
+        
+        // Update cart count
+        updateCartCount();
+        
+        // Update receipt
+        updateReceipt();
+        
+        // Update money display
+        updateMoneyDisplay();
+        
+        // Add item animation
+        animateItemSell(itemId);
+    }
 }
 
 // Create and display item cards
@@ -194,9 +303,19 @@ function displayItems() {
                 <h3 class="item-name">${item.name}</h3>
                 <p class="item-price">₹${formatMoney(item.price)}</p>
                 <div class="item-controls">
-                    <button class="control-button sell-button" data-item-id="${item.id}" ${!cart[item.id] || cart[item.id] === 0 ? 'disabled' : ''}>Sell</button>
-                    <span class="quantity" id="quantity-${item.id}">${cart[item.id] || 0}</span>
-                    <button class="control-button buy-button" data-item-id="${item.id}" ${currentMoney < item.price ? 'disabled' : ''}>Buy</button>
+                    <div class="control-row quantity-row">
+                        <span class="quantity" id="quantity-${item.id}">${cart[item.id] || 0}</span>
+                    </div>
+                    <div class="control-row buttons-row">
+                        <div class="sell-buttons-group">
+                            <button class="control-button sell-button" data-item-id="${item.id}" ${!cart[item.id] || cart[item.id] === 0 ? 'disabled' : ''}>Sell</button>
+                            <button class="control-button sell-all-button" data-item-id="${item.id}" ${!cart[item.id] || cart[item.id] === 0 ? 'disabled' : ''}>Sell All</button>
+                        </div>
+                        <div class="buy-buttons-group">
+                            <button class="control-button buy-button" data-item-id="${item.id}" ${currentMoney < item.price ? 'disabled' : ''}>Buy</button>
+                            <button class="control-button buy-max-button" data-item-id="${item.id}" ${currentMoney < item.price ? 'disabled' : ''}>Buy Max</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -216,6 +335,14 @@ function addEventListeners() {
             buyItem(itemId);
         }
         
+        // Buy Max button clicked
+        if (e.target.classList.contains('buy-max-button')) {
+            e.preventDefault();
+            e.stopPropagation();
+            const itemId = e.target.dataset.itemId;
+            buyMaxItems(itemId);
+        }
+        
         // Sell button clicked
         if (e.target.classList.contains('sell-button')) {
             e.preventDefault();
@@ -223,11 +350,22 @@ function addEventListeners() {
             const itemId = e.target.dataset.itemId;
             sellItem(itemId);
         }
+        
+        // Sell All button clicked
+        if (e.target.classList.contains('sell-all-button')) {
+            e.preventDefault();
+            e.stopPropagation();
+            const itemId = e.target.dataset.itemId;
+            sellAllItems(itemId);
+        }
     });
 
     // Add touch events for buttons
     itemsContainerEl.addEventListener('touchstart', function(e) {
-        if (e.target.classList.contains('buy-button') || e.target.classList.contains('sell-button')) {
+        if (e.target.classList.contains('buy-button') || 
+            e.target.classList.contains('sell-button') || 
+            e.target.classList.contains('buy-max-button') ||
+            e.target.classList.contains('sell-all-button')) {
             e.preventDefault();
             e.stopPropagation();
         }
@@ -238,10 +376,18 @@ function addEventListeners() {
             e.preventDefault();
             const itemId = e.target.dataset.itemId;
             buyItem(itemId);
+        } else if (e.target.classList.contains('buy-max-button')) {
+            e.preventDefault();
+            const itemId = e.target.dataset.itemId;
+            buyMaxItems(itemId);
         } else if (e.target.classList.contains('sell-button')) {
             e.preventDefault();
             const itemId = e.target.dataset.itemId;
             sellItem(itemId);
+        } else if (e.target.classList.contains('sell-all-button')) {
+            e.preventDefault();
+            const itemId = e.target.dataset.itemId;
+            sellAllItems(itemId);
         }
     }, { passive: false });
     

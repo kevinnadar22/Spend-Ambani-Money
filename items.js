@@ -210,51 +210,69 @@ const items = [
 // Cartoon character speech lines
 const speeches = {
     start: [
-        "Alright, let's see how fast you can burn through my fortune!",
-        "Go ahead, flex those spending muscles—make me regret this!",
-        "My wallet is your wallet… until you bankrupt me!",
-        "Welcome to the VIP life! Don't embarrass me now!",
-        "Money is just a number, and I have too many of them!",
-        "Spend recklessly! Financial advisors HATE me!"
+        "Alright boss, let's see how fast you can burn through my fortune!",
+        "Come on, flex those spending muscles—make me regret this, my friend!",
+        "My wallet is your wallet… until you bankrupt me, dear!",
+        "Welcome to the VIP life! Buy something nice, don't embarrass me now!",
+        "Money is just a number, and I have too many of them, no?",
+        "Spend recklessly! My financial advisors will get heart attack!",
+        "Let's see if you can outspend me, the challenge is on!",
+        "Time to make it rain rupees! Show me your shopping skills!",
+        "My accountant is already sweating, please continue!"
     ],
     smallPurchase: [
-        "Bruh, is that all? My grandma spends more on cat food!",
-        "Wow, big spender! Next, you gonna buy a single peanut?",
-        "Pfft. My goldfish has a higher budget.",
-        "Lemme guess, you're saving up for a yacht? No? Then SPEND MORE!",
-        "Bro, at this rate, even inflation is laughing at you!",
-        "You're treating my money like it's yours—stop being responsible!"
+        "Oh dear, is that all? My grandmother spends more on cat food!",
+        "Wow, big spender! Next time you will buy just one peanut?",
+        "Goodness! Even my goldfish has bigger budget than this.",
+        "What to say, saving for yacht? No? Then SPEND MORE, please!",
+        "My friend, at this rate, even inflation is laughing at you!",
+        "You're treating my money like it's yours—stop being so responsible!",
+        "Did you mistake my billions for thousands? Spend bigger!",
+        "My morning coffee costs more than this! Come on now!",
+        "Is this how you shop? My driver spends more on car polish!"
     ],
     mediumPurchase: [
-        "Okay, now we're getting somewhere!",
-        "You're finally spending like a mildly unhinged millionaire!",
-        "Ooo, I feel that one in my bank account. Nice!",
-        "Now that's a proper flex!",
-        "You're getting a taste for luxury, I see. Dangerous!",
-        "Nice choice! But why stop now? Bankrupt me!"
+        "Good good, now we're talking something!",
+        "Finally, you are spending like a slightly mad millionaire!",
+        "Ooo, I felt that one in my bank account. Very nice!",
+        "Now that's a proper royal expense!",
+        "Seems you've got taste for luxury now. Very dangerous thing!",
+        "Excellent choice! But why stop now? Make me bankrupt, no?",
+        "Getting warmer! My wallet is starting to notice you!",
+        "That's more like it! You're learning the billionaire way!",
+        "Now you're shopping with style! Keep going, my friend!"
     ],
     bigPurchase: [
-        "HOLY— okay, that one stung a little.",
-        "Now you're cooking! With GOLD!",
-        "That's the kind of spending that gets accountants fired!",
-        "Luxury looks disturbingly good on you!",
-        "You just made a random billionaire even richer!",
-        "I hope you enjoy it, because my wallet just cried a little!"
+        "OH MY GOODNESS— okay, that one stung a little.",
+        "Now the camel has come under the mountain! Cooking with GOLD!",
+        "That's the kind of spending that gets accountants sacked!",
+        "Luxury looks too good on you, very dangerous!",
+        "You just made some random billionaire even richer, isn't it!",
+        "Enjoy it fully, because my wallet just shed some tears!",
+        "BAPRE BAP! That was a proper billionaire move!",
+        "My financial team is having emergency meeting right now!",
+        "This is what I call SERIOUS shopping! Very impressive!"
     ],
     cantAfford: [
-        "Whoops! Even bottomless pockets have a bottom!",
-        "Congratulations, you have successfully bankrupted me!",
-        "No money? Time to sell a kidney, I guess!",
-        "You've hit rock bottom… and it's not even marble.",
-        "RIP my funds. Gone but never forgotten.",
-        "Sorry, but even I can't afford your dreams!"
+        "Oh my! Even bottomless pockets have a bottom, no?",
+        "Congratulations, you have successfully made me bankrupt!",
+        "No money left? Time to sell a kidney, I suppose!",
+        "You've hit rock bottom… and it's not even marble flooring.",
+        "RIP my funds. Gone but never will be forgotten.",
+        "Sorry dear, but even I cannot afford your dreams!",
+        "Time to call my bank and beg for loan! What have you done?",
+        "I never thought I'd see this day! My wealth... vanished!",
+        "Should I start selling my helicopters now? This is embarrassing!"
     ],
     almostBroke: [
-        "Uh-oh, I'm feeling kinda broke… Nah, just kidding. (Or am I?)",
-        "My accountant just fainted. Good job!",
-        "You're one purchase away from me having to WORK for money!",
-        "I can hear my credit card crying. It sounds beautiful.",
-        "This is what 'financially reckless' looks like. I'm so proud.",
-        "One more splurge, and we officially enter 'oops' territory!"
+        "Oh no, I'm feeling somewhat poor now… No no, just joking. (Or am I?)",
+        "My accountant just fainted. Very good job!",
+        "Just one more purchase and I will have to do REAL work for money!",
+        "I can hear my credit card crying. What a beautiful sound it is.",
+        "This is what 'financially senseless' looks like. I'm so proud of you.",
+        "One more splurge, and we officially enter 'big trouble' territory!",
+        "I might need to sell one of my islands after this shopping spree!",
+        "My financial advisor is threatening to quit! Keep going!",
+        "I'm checking my other bank accounts now... this is getting serious!"
     ]
 };

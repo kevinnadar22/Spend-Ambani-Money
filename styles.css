@@ -189,7 +189,7 @@ header {
     opacity: 1;
 }
 
-/* Add this after the cart button styles */
+/* Cart notification bubble fix for larger numbers */
 .cart-notification {
     position: absolute;
     top: -8px;
@@ -198,14 +198,15 @@ header {
     color: var(--dark-color);
     font-size: 14px;
     font-weight: bold;
-    width: 22px;
+    min-width: 22px;
     height: 22px;
-    border-radius: 50%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid var(--dark-color);
     transition: transform 0.3s ease;
+    padding: 0 4px;
 }
 
 .cart-notification.active {
@@ -427,9 +428,10 @@ main {
     margin-bottom: 15px;
 }
 
+/* Improved item controls layout */
 .item-controls {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     background-color: rgba(255, 215, 0, 0.1);
     padding: 10px;
@@ -437,12 +439,40 @@ main {
     border: 2px dashed var(--tertiary-color);
     position: relative;
     z-index: 2;
+    gap: 8px;
+}
+
+.control-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quantity-row {
+    margin-bottom: 5px;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.buy-buttons-group, .sell-buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
 }
 
 .quantity {
     font-family: 'Fredoka One', cursive;
     font-size: 1.5rem;
     color: var(--dark-color);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 2px solid var(--tertiary-color);
 }
 
 .control-button {
@@ -450,22 +480,33 @@ main {
     color: var(--light-color);
     border: none;
     border-radius: 10px;
-    padding: 8px 15px;
+    padding: 8px 10px;
     font-family: 'Comic Neue', cursive;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     border: 2px solid var(--dark-color);
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
 }
 
 .buy-button {
     background-color: #4CAF50;
 }
 
+.buy-max-button {
+    background-color: #FF9800;
+}
+
 .sell-button {
     background-color: #F44336;
+}
+
+.sell-all-button {
+    background-color: #E91E63;
 }
 
 .control-button:hover {
@@ -619,9 +660,9 @@ footer {
     .item-controls {
         padding: 8px;
     }
-
+    
     .control-button {
-        padding: 6px 12px;
+        padding: 6px 10px;
         font-size: 0.9rem;
     }
 
@@ -635,6 +676,20 @@ footer {
 
     .item-price {
         font-size: 1.1rem;
+    }
+
+    .buttons-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .buy-buttons-group, .sell-buttons-group {
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .quantity {
+        font-size: 1.3rem;
     }
 }
 
@@ -722,13 +777,29 @@ footer {
         margin-bottom: 10px;
     }
 
-    .control-button {
-        padding: 5px 10px;
-        font-size: 0.85rem;
+    .item-controls {
+        padding: 6px;
+        gap: 5px;
     }
-
+    
+    .control-button {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+    
     .quantity {
         font-size: 1.2rem;
+        padding: 3px 10px;
+    }
+
+    .buttons-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .buy-buttons-group, .sell-buttons-group {
+        flex-direction: row;
+        width: 100%;
     }
 
     .ambani-avatar {
