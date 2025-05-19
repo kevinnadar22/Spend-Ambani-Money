@@ -1,5 +1,5 @@
 // Constants and Variables
-const INITIAL_MONEY = 1000000000000; // ₹10,00,00,00,000
+let INITIAL_MONEY = 1000000000000; // Default value, will be updated from API
 let currentMoney = INITIAL_MONEY;
 let cart = {};
 let displayedSpeech = false;
@@ -39,6 +39,71 @@ function formatMoney(amount) {
     
     let formattedNumber = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
     return formattedNumber;
+}
+
+// Fetch and update networth
+async function fetchAndUpdateNetworth() {
+    try {
+        const response = await fetch('https://cdn.jsdelivr.net/gh/komed3/rtb-api@main/api/profile/mukesh-ambani/latest');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        let data;
+        
+        try {
+            data = JSON.parse(text);
+        } catch (parseError) {
+            console.error('JSON parse error:', parseError, 'Raw text:', text);
+            throw new Error('Failed to parse JSON response');
+        }
+        
+        if (!data || typeof data.networth !== 'number') {
+            console.error('Invalid data structure:', data);
+            throw new Error('Invalid networth data structure');
+        }
+        
+        // data.networth is in millions of USD (e.g., 108020.115 is $108.02 billion)
+        console.log('Raw networth data in USD millions:', data.networth);
+        
+        // Calculate: 
+        // 1. Convert USD millions to USD (multiply by 1,000,000)
+        // 2. Convert USD to INR (multiply by 85)
+        
+        const networthInINR = Math.round(data.networth * 100000 * 85);
+        
+        console.log('Networth in USD:', data.networth * 100000);
+        console.log('Networth in INR:', networthInINR);
+        
+        // Update initial money and current money
+        INITIAL_MONEY = networthInINR;
+        currentMoney = networthInINR;
+        
+        // Update UI
+        updateMoneyDisplay();
+        
+        // Update receipt header
+        const receiptHeader = document.querySelector('.receipt-header p');
+        if (receiptHeader) {
+            receiptHeader.textContent = `Started with: ₹${formatMoney(INITIAL_MONEY)}`;
+        }
+        
+        console.log('Networth fetched successfully:', data);
+    } catch (error) {
+        console.error('Error fetching networth:', error);
+        // Set fallback value if fetch fails
+        INITIAL_MONEY = 1000000000000; // Default fallback
+        currentMoney = INITIAL_MONEY;
+        updateMoneyDisplay();
+        
+        // Update receipt header with fallback value
+        const receiptHeader = document.querySelector('.receipt-header p');
+        if (receiptHeader) {
+            receiptHeader.textContent = `Started with: ₹${formatMoney(INITIAL_MONEY)} (fallback value)`;
+        }
+    }
 }
 
 // Update money display
@@ -444,9 +509,9 @@ function animateItemSell(itemId) {
 }
 
 // Initialize the app
-function init() {
-    // Format initial money
-    updateMoneyDisplay();
+async function init() {
+    // Fetch and update networth first
+    await fetchAndUpdateNetworth();
     
     // Display items
     displayItems();
