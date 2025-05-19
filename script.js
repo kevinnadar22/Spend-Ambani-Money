@@ -72,7 +72,7 @@ async function fetchAndUpdateNetworth() {
         // 1. Convert USD millions to USD (multiply by 1,000,000)
         // 2. Convert USD to INR (multiply by 85)
         
-        const networthInINR = Math.round(data.networth * 100000 * 85);
+        const networthInINR = Math.round(data.networth * 1000000 * 85);
         
         console.log('Networth in USD:', data.networth * 100000);
         console.log('Networth in INR:', networthInINR);
